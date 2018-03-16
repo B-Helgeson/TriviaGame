@@ -4,29 +4,29 @@ $(document).ready(function(){
     // Questions and Data
     var triviaQuestions = [
         {
-            question: "Q1?",
-            answer: "A1",
-            fakes: ["A2", "A3", "A4"]
+            question: "Scuba tanks are generally made from either Aluminum or what other metal?",
+            answer: "Steel",
+            fakes: ["Nickel", "Cooper", "Titanium"]
         },
         {
-            question: "Q2?",
-            answer: "A1",
-            fakes: ["A2", "A3", "A4"]
+            question: "What should you never do when SCUBA diving?",
+            answer: "hold your breath",
+            fakes: ["sneeze underwater", "pee in your wetsuit", "remove your mask"]
         },
         {
-            question: "Q3?",
-            answer: "A1",
-            fakes: ["A2", "A3", "A4"]
+            question: "Which of the following is not a major air space which is affected while descending?",
+            answer: "lungs",
+            fakes: ["mask", "sinus", "ears"]
         },
         {
-            question: "Q4?",
-            answer: "A1",
-            fakes: ["A2", "A3", "A4"]
+            question: "How long should you wait to take a flight after a dive?",
+            answer: "24 hours",
+            fakes: ["48 hours", "12 hours", "6 hours"]
         },
         {
-            question: "Q5?",
-            answer: "A1",
-            fakes: ["A2", "A3", "A4"]
+            question: "What is the maximum recommended depth for an open water certified diver?",
+            answer: "60 feet",
+            fakes: ["90 feet", "120 feet", "100 feet"]
         }
 
     ];
@@ -45,12 +45,28 @@ $("#start").click(function(){
 // For Loop to paint questions on the page based on the list of questions above
     // Should randomly sort "fakes" and "answers" when generating forms questions need to be written into game box. use slice and splice
 
-// time to begin counting down 30 seconds, at the end evaluate win/loss
+
+
+// time to begin counting down 30 seconds, at the end evaluate win/loss at the end
+
+
 
 // When user clicks, save the selection, only one selection allowed per question
 
+
+
+
+
 // Track correct answers, incorrect answers, and unanswered questions
 
+
+
+
+// win/loss logic to paint results screen
+
+
+// Timer Functionality for the Game below
+///_______________________________________///
 
   //  Click events are done for us:
 //   $("#stop").click(timer.stop);
@@ -102,7 +118,7 @@ var timer = {
   }
 };
 
-
+console.log(triviaQuestions);
 console.log("All Javascript Processed")
 
 });
