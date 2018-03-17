@@ -96,3 +96,16 @@ After completing the homework please add the piece to your portfolio. Make sure 
 *If you have any questions about this project or the material we have covered, please post them in the community channels in slack so that your fellow developers can help you! If you're still having trouble, you can come to office hours for assistance from your instructor and TAs.
 
   **Good Luck!**
+
+
+**FlipClock MarkDown Info**
+
+
+### Demo & Documentation
+
+Website and documentation at http://flipclockjs.com/
+
+
+### License
+
+Copyright (c) 2013 Objective HTML, LCC shared under MIT LICENSE
