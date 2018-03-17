@@ -45,6 +45,29 @@ $("#start").click(function(){
 // For Loop to paint questions on the page based on the list of questions above
     // Should randomly sort "fakes" and "answers" when generating forms questions need to be written into game box. use slice and splice
 
+    displayQuestions = function () {
+      //Creates variable to hold the question
+      var newQuestion = [triviaQuestions[counter].question];
+      //This creates the new div for the targeted question and add the content in the same line    
+      var newQuestionDiv = $("<div>" + newQuestion + "</div>");
+      //This adds "display" as a class attribute to the Question div's
+      questionsDiv.addClass('display2')
+      //This adds the placeholder div to the main div on the page ("#question-div")
+      questionsDiv.append(newQuestionDiv);
+      //This creates an array for each possible option     
+      var choicesArr = triviaQuestions[counter].fakes + triviaQuestions.answer;
+      //Creates a button array to appeand each answer
+      var buttonsArr = [];
+      for (var i = 0; i < choicesArr.length; i++) {
+          var newDiv = $('<div>')
+          var button = $('<button>');
+          button.text(choicesArr[i]);
+          button.attr('data-id', i);
+          button.addClass('btn-outline-danger btn-lg btn-block');
+          choicesDiv.append(newDiv);
+          choicesDiv.append(button);
+      }
+    }
 
 
 // time to begin counting down 30 seconds, at the end evaluate win/loss at the end
@@ -64,19 +87,21 @@ $("#start").click(function(){
 
 
 // Timer Functionality for the Game below
-///_______________________________________///
-
 
 var clock = $('.your-clock').FlipClock(0040,{
   clockFace: 'MinuteCounter',
   autoStart: false,
+  time: 30
 });
 
-clock.setCountdown(true),
+clock.setCountdown(true);
 
+var myTime = FlipClock.time 
+
+if (myTime == 0){alert("you lose")}
+
+console.log("Questions and Answers");
 console.log(triviaQuestions);
-console.log("All Javascript Processed")
-
 });
 
 
