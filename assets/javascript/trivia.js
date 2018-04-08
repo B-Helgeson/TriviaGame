@@ -47,10 +47,10 @@ function showQuestions() {
     for (var i = 0; i < triviaQuestions.length; i++) {
         $("#gameBox").append(
             '<div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title">' + triviaQuestions[i].question + '</h3></div>' +
-            '<div class="panel-body"><label class="radio-inline"><input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">'+ triviaQuestions[i].options[0] + '</label>' +
-            '<label class="radio-inline"><input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">' + triviaQuestions[i].options[1] + '</label>' +
-            '<label class="radio-inline"><input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">' + triviaQuestions[i].options[2] + '</label>' +
-            '<label class="radio-inline"><input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">' + triviaQuestions[i].options[3] + '</label></div></div>'
+            '<div class="panel-body"><label class="radio-inline"><input type="radio" name="inlineRadioOptions' + [i] + '" id="inlineRadio1" value="option1">'+ triviaQuestions[i].options[0] + '</label>' +
+            '<label class="radio-inline"><input type="radio" name="inlineRadioOptions' + [i] + '" id="inlineRadio2" value="option2">' + triviaQuestions[i].options[1] + '</label>' +
+            '<label class="radio-inline"><input type="radio" name="inlineRadioOptions' + [i] + '" id="inlineRadio2" value="option2">' + triviaQuestions[i].options[2] + '</label>' +
+            '<label class="radio-inline"><input type="radio" name="inlineRadioOptions' + [i] + '" id="inlineRadio3" value="option3">' + triviaQuestions[i].options[3] + '</label></div></div>'
 
         );
     }
@@ -99,11 +99,9 @@ var clock = $('.your-clock').FlipClock(0040,{
 clock.setCountdown(true);
 
 var myTime = FlipClock.time 
-
 if (myTime == 0){alert("you lose")}
 
-console.log("Questions and Answers");
-console.log(triviaQuestions);
+
 });
 
 
