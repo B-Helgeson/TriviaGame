@@ -5,76 +5,78 @@ $(document).ready(function(){
         {
             question: "Scuba tanks are generally made from either Aluminum or what other metal?",
             answer: "Steel",
-            fakes: ["Nickel", "Cooper", "Titanium"]
+            options: ["Nickel", "Steel", "Cooper", "Titanium"]
         },
         {
             question: "What should you never do when SCUBA diving?",
-            answer: "hold your breath",
-            fakes: ["sneeze underwater", "pee in your wetsuit", "remove your mask"]
+            answer: "Hold your breath",
+            options: ["Sneeze underwater", "Pee in your wetsuit", "Hold your breath", "Remove your mask"]
         },
         {
             question: "Which of the following is not a major air space which is affected while descending?",
-            answer: "lungs",
-            fakes: ["mask", "sinus", "ears"]
+            answer: "Lungs",
+            options: ["Lungs", "Mask", "Sinus", "Ears"]
         },
         {
             question: "How long should you wait to take a flight after a dive?",
             answer: "24 hours",
-            fakes: ["48 hours", "12 hours", "6 hours"]
+            options: ["48 hours", "12 hours", "6 hours", "24 hours"]
         },
         {
             question: "What is the maximum recommended depth for an open water certified diver?",
             answer: "60 feet",
-            fakes: ["90 feet", "120 feet", "100 feet"]
+            options: ["60 feet", "90 feet", "120 feet", "100 feet"]
         }
 
     ];
 
 //Variables for Tracking Purposes
-var correctAnswers, incorrectAnswers, unanswered;
+var correctAnswers = 0, 
+    incorrectAnswers = 0, 
+    unansweredQuestions = 0;
 
-// Paint Start button on page upon load, click button to begin game
+// Once start button is clicked, hide the start button, start the clock, and run the function to show the questions
 $("#start").click(function(){
-    $(this).hide();
+    $("#start").hide();
     clock.start();
-// To Do: function to load questions onto page
-// To Do: function to start overall game
+    showQuestions();
 });
 
+// for loop to create question divs and buttons based on the trivia questions array
+function showQuestions() {
+    for (var i = 0; i < triviaQuestions.length; i++) {
+        $("#gameBox").append(
+            '<div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title">' + triviaQuestions[i].question + '</h3></div>' +
+            '<div class="panel-body"><label class="radio-inline"><input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">'+ triviaQuestions[i].options[0] + '</label>' +
+            '<label class="radio-inline"><input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">' + triviaQuestions[i].options[1] + '</label>' +
+            '<label class="radio-inline"><input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">' + triviaQuestions[i].options[2] + '</label>' +
+            '<label class="radio-inline"><input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">' + triviaQuestions[i].options[3] + '</label></div></div>'
 
-// For Loop to paint questions on the page based on the list of questions above
-    // Should randomly sort "fakes" and "answers" when generating forms questions need to be written into game box. use slice and splice
-
-    displayQuestions = function () {
-      //Creates variable to hold the question
-      var newQuestion = [triviaQuestions[counter].question];
-      //This creates the new div for the targeted question and add the content in the same line    
-      var newQuestionDiv = $("<div>" + newQuestion + "</div>");
-      //This adds "display" as a class attribute to the Question div's
-      questionsDiv.addClass('display2')
-      //This adds the placeholder div to the main div on the page ("#question-div")
-      questionsDiv.append(newQuestionDiv);
-      //This creates an array for each possible option     
-      var choicesArr = triviaQuestions[counter].fakes + triviaQuestions.answer;
-      //Creates a button array to appeand each answer
-      var buttonsArr = [];
-      for (var i = 0; i < choicesArr.length; i++) {
-          var newDiv = $('<div>')
-          var button = $('<button>');
-          button.text(choicesArr[i]);
-          button.attr('data-id', i);
-          button.addClass('btn-outline-danger btn-lg btn-block');
-          choicesDiv.append(newDiv);
-          choicesDiv.append(button);
-      }
+        );
     }
+    $("#gameBox").append('<button id="submit" type="button" class="btn btn-primary btn-lg info" data-toggle="modal" data-target="#myModal"> Submit Quiz </button>')
+}
+
+
+// Modal Functionality
+$('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').focus()
+  })
+
+
+// Submit Button Logic
+$("#submit").click(function(){
+    clock.stop();
+})
+
+
 
 
 // time to begin counting down 30 seconds, at the end evaluate win/loss at the end
 
 
 
-// When user clicks, save the selection, only one selection allowed per question
+// When user clicks, save the selection
 
 
 
